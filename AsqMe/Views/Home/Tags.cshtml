@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewData["Title"] = "Tags";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div class="container p-3 pt-5 mb-5" id=questions>
+    <div class="row m-n2">
+        <div class="col-12">
+            <form action="/questions" method="GET" class="d-flex justify-content-center ">
+                <div class="form-group d-flex flex-row  col-8 col-lg-2">
+                    <!-- <label for="orderby">orderby:</label> -->
+                    <select name="orderby" id="orderby" class="form-control selectpicker1" multiple data-live-search="true" title="Choose Order">
+                        <option>popular</option>
+                        <option>new</option>
+                        <option>name</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-light rounded-pill fa fa-sync" data-toggle="tooltip" data-placement="top" title="Apply"></button>
+                </div>
+                <div class="form-group d-flex flex-row ">
+                    <button type="button" class="btn btn-light rounded-pill text-secondary fa fa-times-circle" data-toggle="tooltip" data-placement="top" title="Reset"></button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="row container tags p-3">
+                    <table class="table-bordered flex-grow-1">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="p-1 text-center">
+                                        <a href="/tags/tag1" class="text-success">
+                                            <h6>tag1</h6><a></a>
+                                            <a href="/tags/tag1" class="text-success"><span>17 Questions</span></a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="p-1 text-center">
+                                        <a href="/tags/tag1" class="text-success">
+                                            <h6>tag1</h6><a></a>
+                                            <a href="/tags/tag1" class="text-success"><span>17 Questions</span></a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="p-1 text-center">
+                                        <a href="/tags/tag1" class="text-success">
+                                            <h6>tag1</h6><a></a>
+                                            <a href="/tags/tag1" class="text-success"><span>17 Questions</span></a>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="p-1 text-center">
+                                        <a href="/tags/tag1" class="text-success">
+                                            <h6>tag1</h6><a></a>
+                                            <a href="/tags/tag1" class="text-success"><span>17 Questions</span></a>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

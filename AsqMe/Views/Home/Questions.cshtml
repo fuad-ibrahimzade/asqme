@@ -1,0 +1,208 @@
+﻿
+@{
+    ViewData["Title"] = "Questions";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div class="container p-3 pt-5 mb-5" id=questions>
+    <div class="row m-n2">
+        <div class="col-9">
+            <h2 class="notbold">Questions</h2>
+            <form action="/questions" method="GET" class="d-flex justify-content-start ">
+                <div class="form-group d-flex flex-row flex-fill">
+                    <!-- <label for="orderby">orderby:</label> -->
+                    <select name="orderby" id="orderby" class="form-control selectpicker1" multiple data-live-search="true" title="Choose Order">
+                        <option>category</option>
+                        <option>tag</option>
+                    </select>
+                </div>
+                <div class="form-group d-flex flex-row flex-fill">
+                    <!-- <label for="category">category:</label> -->
+                    <select name="category" id="category" class="form-control selectpicker2" multiple data-live-search="true" title="Choose one or more Categories">
+                        <option>category1</option>
+                        <option>category2</option>
+                        <option>category3</option>
+                    </select>
+                </div>
+                <div class="form-group d-flex flex-row flex-fill">
+                    <!-- <label for="tag">tag:</label> -->
+                    <select name="tag" id="tag" class="form-control selectpicker3" multiple data-live-search="true" title="Choose one or more Tags">
+                        <option>tag1</option>
+                        <option>tag2</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-light rounded-pill fa fa-sync" data-toggle="tooltip" data-placement="top" title="Apply"></button>
+                </div>
+                <div class="form-group d-flex flex-row flex-fill">
+                    <button type="button" class="btn btn-light rounded-pill text-secondary fa fa-times-circle" data-toggle="tooltip" data-placement="top" title="Reset"></button>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-3">
+            <!-- <p>Categories</p> -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-9">
+            <div class="row">
+                <div class="row container question">
+                    <div class=" h-100 w-100 position-absolute pr-lg-5">
+                        <div class="rounded black-border border h-25">
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-9 pt-2 d-flex flex-row justify-content-between">
+                        <div>
+                            <img src="https://img.icons8.com/nolan/64/user.png" class="icons pr-1" />
+                        </div>
+                        <div>
+                            <a href="/questions/1"><h6>social media Sharing plugin.</h6></a>
+                            <span class="text-secondary">17 views</span>
+                            <span>Joseph Anderson Answered question 3 hours ago</span>
+                            <a href="/category/Addons" class="text-secondary fa fa-sm fa-folder">Addons</a>
+                            <a href="/tags/Social Media/" class="text-secondary fa fa-sm fa-tags">Social Media</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-3 pt-2 d-flex justify-content-around  h-75">
+                        <div class="border-secondary rounded border p-1">
+                            <p class="border-bottom border-secondary ">
+                                1$
+                            </p>
+                            <p class="mt-n3">earned</p>
+                        </div>
+                        <div class="border-success rounded border p-1">
+                            <a href="/questions/1" class="btn p-0">
+                                <p class="border-bottom border-success ">
+                                    10
+                                </p>
+                                <p class="mt-n3">answers</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row container question">
+                    <div class=" h-100 w-100 position-absolute pr-lg-5">
+                        <div class="rounded black-border border h-25">
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-9 pt-2 d-flex flex-row justify-content-between">
+                        <div>
+                            <img src="https://img.icons8.com/nolan/64/user.png" class="icons pr-1" />
+                        </div>
+                        <div>
+                            <a href="/questions/1"><h6>social media Sharing plugin.</h6></a>
+                            <span class="text-secondary">17 views</span>
+                            <span>Joseph Anderson Answered question 3 hours ago</span>
+                            <a href="/category/Addons" class="text-secondary fa fa-sm fa-folder">Addons</a>
+                            <a href="/tags/Social Media/" class="text-secondary fa fa-sm fa-tags">Social Media</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-3 pt-2 d-flex justify-content-around  h-75">
+                        <div class="border-secondary rounded border p-1">
+                            <p class="border-bottom border-secondary ">
+                                1$
+                            </p>
+                            <p class="mt-n3">earned</p>
+                        </div>
+                        <div class="border-success rounded border p-1">
+                            <a href="/questions/1" class="btn p-0">
+                                <p class="border-bottom border-success ">
+                                    10
+                                </p>
+                                <p class="mt-n3">answers</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-3">
+            <div class="row">
+                <div class="container text-center d-flex flex-column pb-4" id="top-users">
+                    <div class="row p-2 pr-2">
+                        <h6>TOP USERS</h6>
+                        <a href="/users" class="mt-n2 font-weight-bold text-success btn ">View All Users</a>
+                    </div>
+                    <div class="row d-flex flex-column">
+
+                        <div class="d-flex justify-content-center">
+                            <div class="border black-border2 shadow w-75 position-absolute"></div>
+                            <div>
+                                <a href="/users/1"><img src="https://img.icons8.com/nolan/64/user.png" class="icons"></a>
+                            </div>
+                            <div>
+                                <a href="/users/1" class="text-decoration-none"><h3>User1</h3></a>
+                                <a href="/users/1"><p class="pr-5">10$ earned</p></a>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <div class="border black-border2 shadow w-75 position-absolute"></div>
+                            <div>
+                                <a href="/users/1"><img src="https://img.icons8.com/nolan/64/user.png" class="icons" /></a>
+                            </div>
+                            <div>
+                                <a href="/users/1" class="text-decoration-none"><h3>User1</h3></a>
+                                <a href="/users/1"><p class="pr-5">10$ earned</p></a>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <div class="border black-border2 shadow w-75 position-absolute"></div>
+                            <div>
+                                <a href="/users/1"><img src="https://img.icons8.com/nolan/64/user.png" class="icons" /></a>
+                            </div>
+                            <div>
+                                <a href="/users/1" class="text-decoration-none"><h3>User1</h3></a>
+                                <a href="/users/1"><p class="pr-5">10$ earned</p></a>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <div class="border black-border2 shadow w-75 position-absolute overflow-hidden"></div>
+                            <div>
+                                <a href="/users/1"><img src="https://img.icons8.com/nolan/64/user.png" class="icons" /></a>
+                            </div>
+                            <div>
+                                <a href="/users/1" class="text-decoration-none"><h3>User1</h3></a>
+                                <a href="/users/1"><p class="pr-5">10$ earned</p></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h6>Categories</h6>
+                </div>
+                <div class="col-12  border-secondary shadow rounded border-bottom border-top border-left border-right p-2">
+                    <div class="d-flex justify-content-around">
+                        <div>
+                            <a href="/questions/category1"><h5>Categoryname1</h5></a>
+                            <a href="/questions/category1"><p>100 Questions</p></a>
+                        </div>
+                        <div>
+                            <a href="/questions/category1">
+                                <img src="https://img.icons8.com/nolan/64/bug.png" class="icons" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div>
+                            <a href="/questions/category2"><h5>Categoryname2</h5></a>
+                            <a href="/questions/category2"><p>100 Questions</p></a>
+                        </div>
+                        <div>
+                            <a href="/questions/category2">
+                                <img src="https://img.icons8.com/nolan/64/bug.png" class="icons" />
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

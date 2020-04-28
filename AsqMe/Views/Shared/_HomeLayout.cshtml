@@ -1,0 +1,179 @@
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<ApplicationUser> SignInManager
+@inject Microsoft.AspNetCore.Identity.UserManager<ApplicationUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico">
+    <!-- <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script> -->
+
+    <link type="text/css" rel="stylesheet" href="~/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/assets/css/bootstrap-select.css" />
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="~/assets/css/main.css">
+
+    <title>AsqMe</title>
+</head>
+
+<body class="d-flex flex-column">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex flex-row justify-content-lg-center ">
+        <a class="navbar-brand" href="/">
+            <img class="img-fluid" src="~/assets/img/logo.png" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse flex-lg-grow-0 w-75 " id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto align-items-center">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/questions">Questions <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tags">Tags</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/categories">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users">Users</a>
+                </li>
+                @*<li class="nav-item dropdown dropdownum">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>*@
+            </ul>
+
+            <div class="d-flex justify-content-center flex-column flex-lg-row">
+                <div class="d-flex justify-content-center">
+
+                    <a asp-controller="Profile" asp-action="Asq" class="btn btn-dark mr-2" style="height: 37px;">Asq</a>
+                </div>
+                <!-- my-2 my-lg-0 -->
+                <form class="d-flex flex-row my-2 my-lg-0 px-3 px-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <!-- my-2 my-sm-0 -->
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <div class="d-flex justify-content-center">
+                    @{
+                        var providers = (await SignInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+                        var facebookProvider = providers.Find(item => item.Name == "Facebook");
+                    }
+                    @if ((!User.Identity.IsAuthenticated) && providers.Any() && facebookProvider != null)
+                    {
+                        @*<a href="~/ExternalLoginGet" class="btn btn-primary ml-2 fa fa-lock" style="height: 37px;"></a>*@
+                        <form asp-action="ExternalLogin" asp-controller="Profile" asp-route-returnurl="@Url.Content("~/")" method="post" class="form-horizontal" style="height: 37px;">
+                            <div>
+                                <p>
+                                    <input type="hidden" value="@facebookProvider.Name" name="provider" />
+                                    <button class="btn btn-primary ml-2 fa fa-lock" style="height: 37px;"></button>
+                                </p>
+                            </div>
+                        </form>
+                    }
+                    @{
+                        var profilePicture = (await UserManager.GetUserAsync(User))?.ProfilePicture;
+                        var profilePictureWeb = (await UserManager.GetUserAsync(User))?.ProfilePictureWeb;
+                        var profileEmail = (await UserManager.GetUserAsync(User))?.Email;
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="d-flex flex-row flex-lg-row pl-0 pl-md-3" style="height:37px">
+                            <div class="d-flex justify-content-center">
+                                <img src="@profilePicture" style="height:37px">
+                            </div>
+                            <div class="d-flex justify-content-center pl-3 pt-1">
+                                <p>@profileEmail</p>
+                            </div>
+                            <div class="nav-item d-flex justify-content-center">
+                                <a class="nav-link btn btn-light fa fa-sign-out-alt" href="/logout" style="height: 37px;"> </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+        </div>
+        <small style="font-size: 12px" class="pl-3 d-none d-lg-block">Facebook Login dont work on heroku</small>
+    </nav>
+    <main class="">
+        @*@Html.ValidationSummary()*@
+        @RenderBody()
+    </main>
+    <footer class="container-fluid bg-dark text-white mt-auto">
+        <div class="row p-2 d-flex justify-content-center">
+            <div class="col-5">
+                <h2>AsqMe</h2>
+                <p>
+                    Q&A Website
+                </p>
+            </div>
+            <div class="col-5 row">
+                <div class="col-6">
+                    <p>Questions</p>
+                    <a href="/questions/active" class="text-white d-block">Active questions</a>
+                    <a href="/questions/new" class="text-white d-block">New questions</a>
+                    <a href="/questions/popular" class="text-white d-block">Most viewed questions</a>
+                    <a href="/questions/top" class="text-white d-block">Top voted questions</a>
+                    <a href="/questions/solved" class="text-white d-block">Solved questions</a>
+                    <a href="/questions/unsolved" class="text-white d-block">Unsolved questions</a>
+                </div>
+                <div class="col-6">
+                    <p>Users</p>
+                    <a href="/users/active" class="text-white d-block">Active users</a>
+                    <a href="/users/top" class="text-white d-block">Top earning users</a>
+                </div>
+            </div>
+        </div>
+        <div class="row darken-background d-flex justify-content-around p-2">
+            <div class="col-12 text-center">
+                © 2020 AsqMe
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- <script src="~/assets/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="~/assets/js/popper.min.js"></script> -->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/popper.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/bootstrap-select.min.js"></script>
+    <script src="~/assets/js/main.js"></script>
+    <script type="text/javascript">
+        if (window.location.hash && window.location.hash == '#_=_') {
+            if (window.history && history.pushState) {
+                window.history.pushState("", document.title, window.location.pathname);
+            } else {
+                // Prevent scrolling by storing the page's current scroll offset
+                var scroll = {
+                    top: document.body.scrollTop,
+                    left: document.body.scrollLeft
+                };
+                window.location.hash = '';
+                // Restore the scroll offset, should be flicker free
+                document.body.scrollTop = scroll.top;
+                document.body.scrollLeft = scroll.left;
+            }
+        }
+    </script>
+    @await RenderSectionAsync("scripts", required: false)
+</body>
+
+</html>

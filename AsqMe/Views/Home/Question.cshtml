@@ -1,0 +1,141 @@
+﻿
+@{
+    ViewData["Title"] = "Question";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div class="container p-3 pt-5 mb-5" id=questions>
+    <!-- <div class="row m-n2">
+        <div class="col-12 col-lg-9">
+
+        </div>
+        <div class="col-12 col-lg-3">
+            <p>Categories</p>
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="col-12 col-lg-9">
+            <div class="row container question">
+                <div class="d-flex flex-column flex-fill">
+                    <h2 class="">Question Title?</h2>
+                    <div class="row pl-3 d-flex justify-content-between w-50">
+                        <div>
+                            <span class="fa fa-eye textde"></span>
+                            <span>10 Views</span>
+                        </div>
+                        <div>
+                            <span class="fa fa-history"></span>
+                            <span>1 Day Ago</span>
+                        </div>
+                        <div>
+                            <a href="/category/Addons" class="text-secondary fa fa-sm fa-folder">Addons</a>
+                            <a href="/tags/Social Media/" class="text-secondary fa fa-sm fa-tags">Social Media</a>
+                        </div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="col-lg-1 col-12 d-flex justify-content-center">
+                            <img src="https://img.icons8.com/nolan/64/user.png" class="icons pr-1 ">
+                        </div>
+                        <div class="d-flex flex-row flex-fill">
+                            <div class="card w-100">
+                                <div class="card-header">
+                                    Username1 Posted <small>August 13, 2019</small>
+                                </div>
+                                <div class="card-body">
+                                    <div>
+                                        Como traslado mis correos de gsuite a webmail?
+                                    </div>
+                                    <div>
+                                        <i class="fa fa-clock"></i>
+                                        <a href="/users/username">Wilfredo</a> <span> Asked question <small> 3 days ago</small></span>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end pb-2 pr-2">
+                                    <button class="btn btn-light border text-success">Add Comment</button>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column">
+                                <button class="border btn btn-light fa fa-thumbs-up"></button>
+                                <p class="border btn btn-light">0</p>
+                                <button class="border btn btn-light fa fa-thumbs-down"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-3 answers pt-5 d-flex flex-column">
+                        <div class="row answerorder d-flex flex-row">
+                            <h6 class="mr-auto">1 Answer</h6>
+                            <div class="d-flex flex-row justify-content-between">
+                                <a href="/question/order/oldest" class="btn btn-light">Oldest</a>
+                                <a href="/question/order/newest" class="btn btn-light">Newest</a>
+                                <a href="/question/order/voted" class="btn btn-light">Voted</a>
+                                <a href="/question/order/active" class="btn btn-light active">Active</a>
+                            </div>
+                        </div>
+                        <div class="row p-3">
+                            <div class="col-lg-1 col-12 d-flex justify-content-center">
+                                <img src="https://img.icons8.com/nolan/64/user.png" class="icons pr-1 ">
+                            </div>
+                            <div class="d-flex flex-row flex-fill">
+                                <div class="card w-100">
+                                    <div class="card-header">
+                                        Username1 Posted <small>August 13, 2019</small>
+                                    </div>
+                                    <div class="card-body">
+                                        <div>
+                                            Como traslado mis correos de gsuite a webmail?
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-clock"></i>
+                                            <a href="/users/username">Wilfredo</a> <span> Answered question <small> 3 days ago</small></span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-end pb-2 pr-2">
+                                        <button class="btn btn-light border text-success">Add Comment</button>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <button class="border btn btn-light fa fa-thumbs-up"></button>
+                                    <p class="border btn btn-light">0</p>
+                                    <button class="border btn btn-light fa fa-thumbs-down"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-3">
+            <div class="row d-flex flex-column">
+                <div>
+                    <p>Categories</p>
+                </div>
+                <div class=" border-secondary shadow rounded border-bottom border-top border-left border-right p-2">
+                    <div class="d-flex justify-content-around">
+                        <div>
+                            <a href="/questions/category1"><h5>Categoryname1</h5></a>
+                            <a href="/questions/category1"><p>100 Questions</p></a>
+                        </div>
+                        <div>
+                            <a href="/questions/category1">
+                                <img src="https://img.icons8.com/nolan/64/bug.png" class="icons" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div>
+                            <a href="/questions/category2"><h5>Categoryname2</h5></a>
+                            <a href="/questions/category2"><p>100 Questions</p></a>
+                        </div>
+                        <div>
+                            <a href="/questions/category2">
+                                <img src="https://img.icons8.com/nolan/64/bug.png" class="icons" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

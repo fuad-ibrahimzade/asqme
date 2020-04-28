@@ -1,0 +1,197 @@
+﻿
+@model AsqMe.Data.ViewModels.IndexViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+<div asp-validation-summary="All" class="text-danger validationSummary"></div>
+@if (ViewBag.SerializedData != null)
+{
+    <p>@ViewBag.SerializedData.message</p>
+}
+
+<div class="container-fluid bg-success d-flex justify-content-center text-center text-light" id="info">
+    <div class="row">
+        <div class="col-md-6 col-12 p-5 d-flex flex-column justify-content-between">
+            <h3>
+                Have Questions?
+                <br>
+                Ask experts valued by currency.
+            </h3>
+            <a href="/asq" class="btn bg-transparent border-light text-light ml-auto mr-auto">Asq Questions</a>
+        </div>
+        <div class="col-md-6 col-12 p-5 d-flex flex-column justify-content-between darken-background">
+            <h3>
+                Are you Expert? Show it answering Questions.
+            </h3>
+            <a href="/questions" class="btn bg-light text-success ml-auto mr-auto">Answer</a>
+        </div>
+    </div>
+
+
+</div>
+<div class="container-fluid darken-background  text-center" id="stats">
+    <div class="row d-flex justify-content-around p-3">
+        <div class="col-6 col-lg-3 pt-2 d-flex flex-row justify-content-center">
+            <img src="https://img.icons8.com/nolan/64/ask-question.png" / class="icons">
+            <p class="pt-2">207 Questions</p>
+        </div>
+        <div class="col-6 col-lg-3 pt-2 d-flex flex-row justify-content-center">
+            <img src="https://img.icons8.com/nolan/64/test-passed.png" class="icons" />
+            <p class="pt-2">3 Solved</p>
+        </div>
+        <div class="col-6 col-lg-3 pt-2 d-flex flex-row justify-content-center">
+            <img src="https://img.icons8.com/nolan/50/faq.png" class="icons" />
+            <p class="pt-2">336 Answers</p>
+        </div>
+        <div class="col-6 col-lg-3 pt-2 d-flex flex-row justify-content-center">
+            <img src="https://img.icons8.com/nolan/64/user.png" class="icons" />
+            <p class="pt-2">280 Users</p>
+        </div>
+    </div>
+</div>
+<div class="container text-center" id="top-users">
+    <div class="row p-2 pr-2">
+        <h6>TOP USERS</h6>
+        <a href="/users" class="mt-n2 font-weight-bold text-success btn ">View All Users</a>
+    </div>
+    <div class="row">
+        @foreach (var item in Model.Users)
+        {
+            <div class="col-6 col-lg-3 d-flex justify-content-center ">
+                <div class="border black-border shadow w-75 h-100 position-absolute"></div>
+                <div>
+                    <a href="/users/@item.UserName"><img src="@(item.ProfilePicture == "SeedPicture" ? item.ProfilePictureWeb : item.ProfilePicture)" class="icons" /></a>
+                </div>
+                <div>
+                    <a href="/users/@item.UserName" class="text-decoration-none"><h3>@item.FacebookName</h3></a>
+                    <a href="/users/@item.UserName"><p class="pr-5">10$ earned</p></a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<div class="container p-3 pt-5 mb-5" id=questions>
+    <div class="row m-n2">
+        <div class="col-9">
+            <form action="/questions" method="GET" class="d-flex justify-content-start ">
+                <div class="form-group d-flex flex-row flex-fill">
+                    <!-- <label for="orderby">orderby:</label> -->
+                    <select name="orderby" id="orderby" class="form-control selectpicker1" multiple data-live-search="true" title="Choose Order">
+                        <option>category</option>
+                        <option>tag</option>
+                    </select>
+                </div>
+                <div class="form-group d-flex flex-row flex-fill">
+                    <!-- <label for="category">category:</label> -->
+                    <select name="category" id="category" class="form-control selectpicker2" multiple data-live-search="true" title="Choose one or more Categories">
+                        @foreach (var item in Model.Categories)
+                        {
+                            <option>@item.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group d-flex flex-row flex-fill">
+                    <!-- <label for="tag">tag:</label> -->
+                    <select name="tag" id="tag" class="form-control selectpicker3" multiple data-live-search="true" title="Choose one or more Tags">
+                        @foreach (var item in Model.Tags)
+                        {
+                            <option>@item.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-light rounded-pill fa fa-sync" data-toggle="tooltip" data-placement="top" title="Apply"></button>
+                </div>
+                <div class="form-group d-flex flex-row flex-fill">
+                    <button type="button" class="btn btn-light rounded-pill text-secondary fa fa-times-circle" data-toggle="tooltip" data-placement="top" title="Reset"></button>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-3">
+            <!-- <p>Categories</p> -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-9">
+            <div class="row">
+                @foreach (var item in Model.Questions)
+                {
+                    <div class="row container question">
+                        <div class="  h-100 w-100 position-absolute pr-lg-5">
+                            <div class="rounded black-border border h-50">
+
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-9 pt-2 d-flex flex-row justify-content-between">
+                            <div>
+                                <img src="@(item.ApplicationUser.ProfilePicture == "SeedPicture" ? 
+                        item.ApplicationUser.ProfilePictureWeb : item.ApplicationUser.ProfilePicture)" class="icons pr-1" />
+                            </div>
+                            <div>
+                                <a href="/questions/@item.Id"><h6>social media Sharing plugin.</h6></a>
+                                <span class="text-secondary">17 views</span>
+                                <span>@item.ApplicationUser.FacebookName Answered question 3 hours ago</span>
+                                <a href="/category/@item.Category.Name" class="text-secondary fa fa-sm fa-folder">@item.Category.Name</a>
+                                <a href="/tags/@((Model.Tags.FirstOrDefault(t=>
+                                           t.Id == Model.QuestionTags.FirstOrDefault(qt=>qt.QuestionId==item.Id).TagId)).Name)" class="text-secondary fa fa-sm fa-tags">
+                                    @((Model.Tags.FirstOrDefault(t=>
+                                           t.Id == Model.QuestionTags.FirstOrDefault(qt=>qt.QuestionId==item.Id).TagId)).Name)
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3 pt-2 d-flex justify-content-around  h-75">
+                            <div class="border-secondary rounded border p-1">
+                                <p class="border-bottom border-secondary ">
+                                    1$
+                                </p>
+                                <p class="mt-n3">earned</p>
+                            </div>
+                            <div class="border-success rounded border p-1">
+                                <a href="/questions/1" class="btn p-0">
+                                    <p class="border-bottom border-success ">
+                                        10
+                                    </p>
+                                    <p class="mt-n3">answers</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-12 col-lg-3 ">
+            <div class="row d-flex flex-column">
+                <div>
+                    <p>Categories</p>
+                </div>
+                <div class=" border-secondary shadow rounded border-bottom border-top border-left border-right p-2">
+                    <div class="d-flex justify-content-around">
+                        <div>
+                            <a href="/questions/category1"><h5>Categoryname1</h5></a>
+                            <a href="/questions/category1"><p>100 Questions</p></a>
+                        </div>
+                        <div>
+                            <a href="/questions/category1">
+                                <img src="https://img.icons8.com/nolan/64/bug.png" class="icons" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div>
+                            <a href="/questions/category2"><h5>Categoryname2</h5></a>
+                            <a href="/questions/category2"><p>100 Questions</p></a>
+                        </div>
+                        <div>
+                            <a href="/questions/category2">
+                                <img src="https://img.icons8.com/nolan/64/bug.png" class="icons" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewData["Title"] = "Asq";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div class="container p-3 pt-5 mb-5" id=questions>
+    <!-- <div class="row m-n2">
+        <div class="col-12 col-lg-9">
+
+        </div>
+        <div class="col-12 col-lg-3">
+            <p>Categories</p>
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="col-12 col-lg-9">
+            <div class="row container question">
+                <div class="d-flex flex-column flex-fill">
+                    <h2 class="">Ask a question</h2>
+                    <div>
+                        <form action="/asq">
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <select name="category" id="category" class="form-control">
+                                    <option>Categoryname1</option>
+                                    <option>Categoryname1</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" id="title" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea name="description" id="description" cols="30" rows="10" class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="tags">Tags</label>
+                                <input type="text" id="tags" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-3">
+            <div class="row d-flex flex-column">
+                <div>
+                    <p>Categories</p>
+                </div>
+                <div class=" border-secondary shadow rounded border-bottom border-top border-left border-right p-2">
+                    <div class="d-flex justify-content-around">
+                        <div>
+                            <a href="/questions/category1"><h5>Categoryname1</h5></a>
+                            <a href="/questions/category1"><p>100 Questions</p></a>
+                        </div>
+                        <div>
+                            <a href="/questions/category1">
+                                <img src="https://img.icons8.com/nolan/64/bug.png" class="icons" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div>
+                            <a href="/questions/category2"><h5>Categoryname2</h5></a>
+                            <a href="/questions/category2"><p>100 Questions</p></a>
+                        </div>
+                        <div>
+                            <a href="/questions/category2">
+                                <img src="https://img.icons8.com/nolan/64/bug.png" class="icons" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

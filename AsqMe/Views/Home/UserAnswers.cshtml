@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewData["Title"] = "UserAnswers";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div class="h-75 w-100 position-absolute" >
+    <img src="~/assets/img/user/photos-30-1.jpg" alt="background" class="img-fluid h-25 w-100 znindex1000 userbackgroundimage">
+</div>
+<div class="container p-3 pt-5 mb-5 " id=users>
+    <div class="row ">
+        <div class="col-12 col-md-3 border shadow bg-white  text-center">
+            <a href="/users/1"><img src="https://img.icons8.com/nolan/64/user.png" class="icons pr-1"></a>
+            <h6>User1name</h6>
+            <span>10$ earned</span>
+            <ul class="list-unstyled list-group flex-shrink-1">
+                <li class="list-group-item">
+                    <a href="/users/1/questions" class="text-success">
+                        <span class="fa fa-question"></span>
+                        <p>Questions</p>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="/users/1/answers" class="text-success lighten-background">
+                        <span class="fa fa-check"></span>
+                        <p>Answers</p>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="/users/1/earnings" class="text-success">
+                        <span class="fa fa-dollar-sign"></span>
+                        <p>Earnings</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-12 col-md-9  bg-white  text-center mt-5 pt-3">
+            <div>
+
+                <div class="row pl-3">
+                    <h6>User1name's Answers</h6>
+                </div>
+                <div class="row container question border m-2">
+                    <!-- <div class="  h-100 w-100 position-absolute pr-lg-5" >
+                        <div class="rounded border-top h-50">
+
+                        </div>
+                    </div> -->
+                    <div class="col-12 ">
+                        <h6>Answer1 title</h6>
+                        <div class="d-flex flex-row">
+                            <a href="/users/1"><img src="https://img.icons8.com/nolan/64/user.png" class="icons pr-1"></a>
+                            <div>
+                                <p class="lighten-background">Poster July 31, 2017</p>
+                                <p>Answer description</p>
+                                <a href="/questions/1" class="btn btn-success h-25 pb-4"><span> View Question </span></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row container question border m-2">
+                    <!-- <div class="  h-100 w-100 position-absolute pr-lg-5" >
+                        <div class="rounded border-top h-50">
+
+                        </div>
+                    </div> -->
+                    <div class="col-12 ">
+                        <h6>Answer1 title</h6>
+                        <div class="d-flex flex-row">
+                            <a href="/users/1"><img src="https://img.icons8.com/nolan/64/user.png" class="icons pr-1"></a>
+                            <div>
+                                <p class="lighten-background">Poster July 31, 2017</p>
+                                <p>Answer description</p>
+                                <a href="/questions/1" class="btn btn-success h-25 pb-4"><span> View Question </span></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="row container tags p-3">
+
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>
+
+

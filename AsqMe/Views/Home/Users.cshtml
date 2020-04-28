@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewData["Title"] = "Users";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div class="container p-3 pt-5 mb-5" id=questions>
+    <div class="row m-n2">
+        <div class="col-12">
+            <form action="/questions" method="GET" class="d-flex justify-content-center ">
+                <div class="form-group d-flex flex-row  col-8 col-lg-2">
+                    <!-- <label for="orderby">orderby:</label> -->
+                    <select name="orderby" id="orderby" class="form-control selectpicker1" multiple data-live-search="true" title="Choose Order">
+                        <option>popular</option>
+                        <option>new</option>
+                        <option>name</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-light rounded-pill fa fa-sync" data-toggle="tooltip" data-placement="top" title="Apply"></button>
+                </div>
+                <div class="form-group d-flex flex-row ">
+                    <button type="button" class="btn btn-light rounded-pill text-secondary fa fa-times-circle" data-toggle="tooltip" data-placement="top" title="Reset"></button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="row container tags p-3">
+                    <table class="table-bordered flex-grow-1">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="row ">
+                                        <div class="col-3 d-flex flex-column justify-content-center">
+                                            <div class="d-flex flex-row pl-2 pt-3">
+                                                <a href="/users/1"><img src="https://img.icons8.com/nolan/64/user.png" class="icons pr-1"></a>
+                                                <div>
+                                                    <a href="/users/1" class="text-decoration-none text-dark"><h3>User1</h3></a>
+                                                    <a href="/users/1" class="text-success"><p class="pr-5 mt-n2">10$ earned</p></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3 d-flex flex-column justify-content-center">
+                                            <div class="row h-100 align-items-center ">
+                                                <span class="fa fa-question text-success pr-2"></span>
+                                                <div class="border black-border h-75 "></div>
+                                                <div class="pl-2">
+                                                    <span>10 Questions</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3 d-flex flex-column justify-content-center">
+                                            <div class="row h-100 align-items-center ">
+                                                <span class="fa fa-check text-success pr-2"></span>
+                                                <div class="border black-border h-75 "></div>
+                                                <div class="pl-2">
+                                                    <span>10 Answers</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3 d-flex flex-column justify-content-center">
+                                            <div class="row h-100 align-items-center ">
+                                                <span class="fa fa-comment text-success pr-2"></span>
+                                                <div class="border black-border h-75 "></div>
+                                                <div class="pl-2">
+                                                    <span>10 Comments</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

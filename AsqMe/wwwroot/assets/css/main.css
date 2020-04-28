@@ -1,0 +1,132 @@
+body > nav > a > img {
+    height: 80px !important;
+}
+
+body > div {
+    height: 250px;
+}
+
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+
+.validationSummary ul {
+    margin-bottom: 0px;
+}
+
+/* body > div > div > div:nth-child(2) */
+.darken-background {
+    /* filter: alpha(opacity=50);
+    opacity: .5; */
+    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) );
+    background-size: cover;
+}
+
+.lighten-background {
+    filter: alpha(opacity=50);
+    opacity: .5;
+    /* background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) );
+    background-size: cover; */
+}
+
+.black-border {
+    /* border-radius: 20px; */
+    border-color: black;
+    z-index: -1000;
+}
+.black-border2 {
+    /* border-radius: 20px; */
+    border-color: black;
+    z-index: -1000;
+    height: 12%;
+}
+.questionborder {
+    height: 145px;
+}
+.navbar-collapse {
+    z-index: 1000!important;
+    background-color: white;
+}
+
+.zindex1000 {
+    z-index: 1000;
+}
+.znindex1000 {
+    z-index: -1000;
+}
+
+.userbackgroundimage{
+    /* background-position: inherit;
+    background-size: cover; */
+    object-fit: cover;
+    object-position: top;
+}
+
+
+.icons{
+    height: 40px;
+}
+
+/* body {
+    min-width: 100vw;
+} */
+body > nav {
+    height: 90px;
+}
+#questions div.border-secondary.rounded.border.p-1 {
+    height: 53px;
+}
+#questions div.border-success.rounded.border.p-1 {
+    height: 53px;
+}
+.notbold{
+    font-weight:normal;
+}​
+.asqform {
+    max-height: 38px!important;
+}
+#navbarSupportedContent {
+    height: 100vh;
+}
+/* // Extra small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap */
+
+/* // Small devices (landscape phones, 576px and up) */
+/* @media (min-width: 576px) { ... } */
+
+/* // Medium devices (tablets, 768px and up) */
+
+@media (min-width: 768px) { 
+    .questionborder {
+        height: 122px;
+    }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    #navbarSupportedContent {
+        height: initial;
+    }
+    .navbar-collapse {
+        z-index: 1;
+    }
+    body > nav {
+        height: 70px;
+    }
+    .questionborder{
+        height: 84px;
+    }
+    /* #questions div.border-secondary.rounded.border.p-1 {
+        height: 55px;
+    } */
+    /* #questions div.border-success.rounded.border.p-1 {
+        height: 55px;
+    } */
+ }
+
+/* // Extra large devices (large desktops, 1200px and up) */
+/* @media (min-width: 1200px) { ... } */
+
